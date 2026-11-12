@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<style>
+body {
+background: green;
+text-align: center;
+}
+.btn {
+background: cyan;
+padding: 18px;
+border: none;
+border-radius: 9px;
+cursor: pointer;
+}
+.reset {
+background: orange;
+padding: 18px;
+border: none;
+border-radius: 9px;
+cursor: pointer;
+}
+</style>
+<script>
+function validation() {
+let username = document.forms["form"]["username"].value;
+let name = document.forms["form"]["name"].value;
+let mobile = document.forms["form"]["mobile"].value;
+let email = document.forms["form"]["email"].value;
+let password = document.forms["form"]["password"].value;
+if (username == "") {
+alert("Please enter your username");
+return false;
+}
+if (name == "") {
+alert("Please enter your name");
+return false;
+}
+if (mobile == "") {
+alert("Please enter your mobile number");
+return false;
+}
+if (!/^[0-9]{10}$/.test(mobile)) {
+alert("Please enter a valid 10-digit mobile number");
+return false;
+}
+if (email == "") {
+alert("Please enter your email");
+return false;
+}
+if (password == "" || password.length < 8) {
+alert("Password must be at least 8 characters");
+return false;
+}
+alert("Form has been submitted successfully!");
+return true;
+}
+</script>
+</head>
+<body>
+<h1>Form Validation</h1>
+<form name="form" onsubmit="return validation()">
+Username:
+<input type="text" name="username">
+<br><br>
+Name:
+<input type="text" name="name">
+<br><br>
+Mobile Number:
+<input type="tel" name="mobile">
+<br><br>
+Email:
+<input type="email" name="email">
+<br><br>
+Password:
+<input type="password" name="password">
+<br><br>
+<input type="submit" value="Submit" class="btn">
+<input type="reset" value="Reset" class="reset">
+</form>
+</body>
+</html>
+
